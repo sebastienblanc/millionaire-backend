@@ -7,6 +7,7 @@ import java.util.Date;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.inject.Singleton;
 import javax.json.bind.Jsonb;
 import javax.json.bind.JsonbBuilder;
 
@@ -31,13 +32,15 @@ import org.quartz.SchedulerException;
 import org.quartz.Trigger;
 
 import io.quarkus.arc.Arc;
+import io.smallrye.reactive.messaging.annotations.Broadcast;
 import io.vertx.core.Vertx;
 
-@ApplicationScoped
+@Singleton
 public class QuestionRoller {
     
     @Inject
     @Channel("new-question")
+    @Broadcast
     Emitter<String> questions;
 
     @Inject

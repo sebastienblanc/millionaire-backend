@@ -3,19 +3,18 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Prices</title>
+    <title>Millionaire's Game</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
+        <link rel="stylesheet" href="msg.css"/>
 </head>
 
 <body>
     <div class="container">
-        <h1 id="welcome">Welcome</h1>
-        <h2>Questions</h2>
-        <div class="row" id="row-game">
-            <div class="card">
+        <h1>Welcome <span id="welcome"></span></h1>
+        <div class="row vertical-center justify-content-center" id="row-game">
+            <div class="card question-card">
                 <div class="card-body">
                     <h5 class="card-title" id="question" data-question-id="0"></h5>
                     <button type="button" class="btn btn-secondary" id="a0" data-answer-id="0"></button>
@@ -24,7 +23,7 @@
                     <button type="button" class="btn btn-secondary" id="a3" data-answer-id="0"></button>
                 </div>
             </div>
-            <div class="card">
+            <div class="card time-card">
                 <div class="card-body" id="countdown">
                     <div class="values"></div>
                 </div>
@@ -212,7 +211,7 @@
                 dataType: 'json',
                 url: "/user/register", 
                 success: function(data, status) {
-                    $("#welcome").html("Welcome " + data.user)
+                    $("#welcome").html(data.user)
                     sessionStorage.setItem("username", data.user)
                     sessionStorage.setItem("userId", data.userId)
                     sessionStorage.setItem("contestId", data.contestId)
@@ -221,7 +220,9 @@
             });
         } else {
             // it is a reload of the page
-            sessionStorage.setItem("username", sessionStorage.getItem("username"))
+            //sessionStorage.setItem("username", sessionStorage.getItem("username"))
+            $("#welcome").html(sessionStorage.getItem("username"))
+            
         }
 
         disableButtons()
