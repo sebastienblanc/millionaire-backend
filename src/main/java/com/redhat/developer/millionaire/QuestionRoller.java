@@ -35,7 +35,7 @@ import io.quarkus.arc.Arc;
 import io.smallrye.reactive.messaging.annotations.Broadcast;
 import io.vertx.core.Vertx;
 
-@Singleton
+@ApplicationScoped
 public class QuestionRoller {
     
     @Inject
