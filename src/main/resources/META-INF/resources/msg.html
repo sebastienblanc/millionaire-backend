@@ -13,6 +13,8 @@
 <body>
     <div class="container">
         <h1>Welcome <span id="welcome"></span></h1>
+        <h2 id="warning">Looks like you refreshed your browser ... Don't worry, just wait a few seconds, you will rejoin when the next question starts.</h2>
+        <h2 id="late">The game will start soon, if you joined late, don't worry, just wait a few seconds, you will join the contest at the next question.</h2>
         <div class="row vertical-center justify-content-center" id="row-game">
             <div class="card question-card">
                 <div class="card-body">
@@ -43,7 +45,8 @@
 <script src="lib/easytimer.min.js"></script>
 
 <script>
-
+    var refreshed = true;
+    var late = true;
     function enableButtons() {
         changeButtonMode(false)
     }
@@ -205,6 +208,9 @@
     $(document).ready(function() {
         $("#row-game").hide()
         $("#row-score").hide()
+        $("#warning").hide()
+        $("#late").hide()
+        
 
         if (sessionStorage.getItem("username") == null) {
             $.ajax({
@@ -212,6 +218,8 @@
                 url: "/user/register", 
                 success: function(data, status) {
                     $("#welcome").html(data.user)
+                    $("#late").show()
+                    late = true;
                     sessionStorage.setItem("username", data.user)
                     sessionStorage.setItem("userId", data.userId)
                     sessionStorage.setItem("contestId", data.contestId)
@@ -222,7 +230,8 @@
             // it is a reload of the page
             //sessionStorage.setItem("username", sessionStorage.getItem("username"))
             $("#welcome").html(sessionStorage.getItem("username"))
-            
+            $("#warning").show()
+            refreshed = true;
         }
 
         disableButtons()
@@ -250,8 +259,12 @@
     source.onmessage = function (event) {
         // this might change when Quarkus supports the SSE types so we can fill on server side the type of event.
         
-        
-        $("#row-game").show()
+        if(!refreshed ) {
+          $("#row-game").show()
+        }
+        if(!late ) {
+          $("#row-game").show()
+        }
         var incomingData = event.data
         var sseContent = JSON.parse(incomingData)
         switch (sseContent.type) {
@@ -268,11 +281,22 @@
             }
 
             case "reveal": {
-                revealResult(sseContent.content);
-                break;
+                
+                 revealResult(sseContent.content);
+                 break;
             }
 
             case "question": {
+                if(refreshed){
+                    $("#row-game").show();
+                    refreshed = false;
+                    $("#warning").hide()
+                }
+                if(late){
+                    $("#row-game").show();
+                    late = false;
+                    $("#late").hide()
+                }
                 enableButtons()
                 startCounter()
                 showAnswers(sseContent.content)
