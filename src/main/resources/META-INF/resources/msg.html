@@ -14,8 +14,19 @@
     <div class="container">
         <h1>Welcome <span id="welcome"></span></h1>
         <h2 id="warning">Looks like you refreshed your browser ... Don't worry, just wait a few seconds, you will rejoin when the next question starts.</h2>
-        <h2 id="late">The game will start soon, if you joined late, don't worry, just wait a few seconds, you will join the contest at the next question.</h2>
-        <div class="row vertical-center justify-content-center" id="row-game">
+        <div id="late">
+            <h2>The game will start soon, if you joined late, don't worry, just wait a few seconds, you will join the contest at the next question.</h2>
+            <br>
+            <h3>Rules :</h3>
+            <ul>
+                <li>You have 20 seconds to answer</li>
+                <li>Be careful ! You can click the answer only once</li>
+                <li>The fastest you answer correctly, the more points you get</li>
+                <li>When the counter is done, you answer will turn to green (correct) or red (incorrect)</li>
+                <li>The host will then reveal to everyone the correct answer</li>
+            </ul>
+        </div>
+            <div class="row vertical-center justify-content-center" id="row-game">
             <div class="card question-card">
                 <div class="card-body">
                     <h5 class="card-title" id="question" data-question-id="0"></h5>

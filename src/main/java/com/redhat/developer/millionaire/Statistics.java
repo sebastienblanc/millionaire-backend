@@ -3,6 +3,7 @@ package com.redhat.developer.millionaire;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
+import io.quarkus.arc.Lock;
 
 import javax.enterprise.context.ApplicationScoped;
 
@@ -16,19 +17,23 @@ public class Statistics {
 
     private Map<String, QuestionCounter> questions = new HashMap<>();
 
+    @Lock
     public void reset() {
         this.numberOfRegisteredUsers = 0;
         this.questions.clear();
     }
 
+    @Lock
     public void incrNumberOfUsers() {
         numberOfRegisteredUsers++;
     }
 
+    @Lock
     public long getNumberOfRegisteredUsers() {
         return numberOfRegisteredUsers;
     }
 
+    @Lock
     public long getTotalAnsweredQuestions() {
         return questions.values()
                     .stream()
@@ -36,15 +41,18 @@ public class Statistics {
                     .sum();
     }
 
+    @Lock
     public void incr(String questionId, String answerId) {
         questions.computeIfAbsent(questionId, k -> new QuestionCounter())
                  .incr(answerId);
     }
 
+    @Lock
     public Optional<QuestionCounter> getQuestionCounter(String questionId) {
         return Optional.ofNullable(questions.get(questionId));
     }
 
+    @Lock
     public Map<String, QuestionCounter> getQuestions() {
         return questions;
     }
