@@ -8,3 +8,9 @@
     border-color: coral;
     border-radius: 10px;
 }
+
+.btn-warning:disabled {
+  color: #212529;
+  background-color: #007bff;
+  border-color: #ffc107;
+}
