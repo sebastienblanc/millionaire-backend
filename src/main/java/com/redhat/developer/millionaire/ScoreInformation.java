@@ -14,6 +14,7 @@ import io.quarkus.arc.Lock;
 // Needs to lock methods (waiting for Quarkus 1.7.0 for better experience)
 
 @ApplicationScoped
+@Lock
 public class ScoreInformation {
 
     @Inject
@@ -25,7 +26,7 @@ public class ScoreInformation {
         this.score.clear();
     }
 
-    @Lock
+   
     public void increment(String user) {
 
         long points = Duration.between(contestState.getQuestionTime(), Instant.now()).toSeconds();
@@ -40,13 +41,12 @@ public class ScoreInformation {
         this.score.computeIfAbsent(user, k -> finalScore);
     }
 
-    @Lock
+   
     public void fail(String user) {
         this.score.computeIfPresent(user, (k, v) -> v + 0);
         this.score.computeIfAbsent(user, k -> 0L);
     }
 
-    @Lock
     public Map<String, Long> getScore() {
         return score;
     }

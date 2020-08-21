@@ -11,6 +11,7 @@ import javax.enterprise.context.ApplicationScoped;
 // Needs to lock methods (waiting for Quarkus 1.7.0 for better experience)
 
 @ApplicationScoped
+@Lock
 public class Statistics {
     
     private long numberOfRegisteredUsers = 0;
