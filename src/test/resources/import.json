@@ -9,7 +9,7 @@
       },
       "incorrectAnswers": [
         {
-          "description": "Kuke",
+          "description": "Puke",
           "prefix": "C"
         },
         {
@@ -26,25 +26,25 @@
     },
     {
       "correctAnswer": {
-        "description": "class",
-        "prefix": "A"
+        "description": "moisture farmers",
+        "prefix": "C"
       },
       "incorrectAnswers": [
         {
-          "description": "struct",
-          "prefix": "C"
+          "description": "smugglers",
+          "prefix": "A"
         },
         {
-          "description": "klazz",
+          "description": "rebels",
           "prefix": "B"
         },
         {
-          "description": "There is no Class in Java",
+          "description": "none, they were retired",
           "prefix": "D"
         }
       ],
       "order": 1,
-      "title": "How do you define a class in Java"
+      "title": "What job did Uncle Owen and Aunt Beru have on Tatooine ?"
     },
     {
       "correctAnswer": {
@@ -70,47 +70,47 @@
     },
     {
       "correctAnswer": {
-        "description": "2014",
-        "prefix": "B"
-      },
-      "incorrectAnswers": [
-        {
-          "description": "2008",
-          "prefix": "C"
-        },
-        {
-          "description": "1337",
-          "prefix": "A"
-        },
-        {
-          "description": "2016",
-          "prefix": "D"
-        }
-      ],
-      "order": 3,
-      "title": "First release of Kubernetes was in :"
-    },
-    {
-      "correctAnswer": {
-        "description": "Java 14",
+        "description": "21",
         "prefix": "C"
       },
       "incorrectAnswers": [
         {
-          "description": "Java 12",
+          "description": "7",
           "prefix": "A"
         },
         {
-          "description": "Java 11",
+          "description": "12",
           "prefix": "B"
         },
         {
-          "description": "Java Script",
+          "description": "42",
+          "prefix": "D"
+        }
+      ],
+      "order": 3,
+      "title": "How many timelines exist in Back to the Future ?"
+    },
+    {
+      "correctAnswer": {
+        "description": "Yes",
+        "prefix": "B"
+      },
+      "incorrectAnswers": [
+        {
+          "description": "No",
+          "prefix": "A"
+        },
+        {
+          "description": "Yes since Java 14",
+          "prefix": "C"
+        },
+        {
+          "description": "It depends",
           "prefix": "D"
         }
       ],
       "order": 4,
-      "title": "Which Java version introduced records ?"
+      "title": "StringBuilder is thread-safe"
     },
     {
       "correctAnswer": {
@@ -133,6 +133,94 @@
       ],
       "order": 5,
       "title": "What happen if a readiness probe fails on a pod ?"
+    },
+    {
+      "correctAnswer": {
+        "description": "Wedge Antilles",
+        "prefix": "A"
+      },
+      "incorrectAnswers": [
+        {
+          "description": "Luke Skywalker",
+          "prefix": "B"
+        },
+        {
+          "description": "Lando Calrissian",
+          "prefix": "C"
+        },
+        {
+          "description": "Han Solo",
+          "prefix": "D"
+        }
+      ],
+      "order": 6,
+      "title": "Who is the only rebel pilot to survive aerial battles in all 3 original movies ?"
+    },
+    {
+      "correctAnswer": {
+        "description": "Java 14",
+        "prefix": "C"
+      },
+      "incorrectAnswers": [
+        {
+          "description": "Java 12",
+          "prefix": "A"
+        },
+        {
+          "description": "Java 11",
+          "prefix": "B"
+        },
+        {
+          "description": "Java Script",
+          "prefix": "D"
+        }
+      ],
+      "order": 7,
+      "title": "Which Java version introduced records ?"
+    },
+    {
+      "correctAnswer": {
+        "description": "3270 to 1",
+        "prefix": "D"
+      },
+      "incorrectAnswers": [
+        {
+          "description": ".067%",
+          "prefix": "A"
+        },
+        {
+          "description": "4.2 million to 1",
+          "prefix": "B"
+        },
+        {
+          "description": "43",
+          "prefix": "C"
+        }
+      ],
+      "order": 8,
+      "title": "What is the percentage likelihood that one can successfully navigate an asteroid field ?"
+    },
+    {
+      "correctAnswer": {
+        "description": "Unique elements with order",
+        "prefix": "D"
+      },
+      "incorrectAnswers": [
+        {
+          "description": "Duplicated elements with order",
+          "prefix": "A"
+        },
+        {
+          "description": "Duplicated elements without order",
+          "prefix": "B"
+        },
+        {
+          "description": "Unique elements without order",
+          "prefix": "C"
+        }
+      ],
+      "order": 9,
+      "title": "A TreeSet collection in Java contains"
     }
   ]
 }
